@@ -1,8 +1,15 @@
 package com.juanpabloprado.reflection;
 
+import com.juanpabloprado.reflection.annotation.Column;
+import com.juanpabloprado.reflection.annotation.PrimaryKey;
+
 public class Person {
 	
+	@PrimaryKey
+	private long id;
+	@Column
 	private String name;
+	@Column
 	private int age;
 	
 	public Person() {
@@ -15,6 +22,14 @@ public class Person {
 	
 	public static Person of(String name, int age) {
 		return new Person(name, age);
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getName() {
